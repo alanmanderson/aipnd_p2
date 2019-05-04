@@ -20,4 +20,4 @@ model = load_checkpoint(checkpoint)
 top_p, classes = predict(image_path, model, top_k, device)
 
 for i in range(len(classes)):
-    print("Class: " + classes[i] + "Probability: " + str(top_p[i]))
+    print("Class: " + classes[i] + "    Probability: " + str(top_p[i]))

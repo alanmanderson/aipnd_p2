@@ -22,13 +22,9 @@ def predict(image_path, model, topk=5, device='cpu'):
     top_p = top_p.data.numpy().squeeze()
     top_labels = top_labels.data.numpy().squeeze()
 
-    idx_to_class = {}
-    for cls, idx in model.class_to_idx.items():
-        idx_to_class[idx] = cls
-
     classes = []
     for label in top_labels:
-        classes.append(idx_to_class[label])
+        classes.append(model.class_to_idx[str(label)])
 
     return top_p, classes
 

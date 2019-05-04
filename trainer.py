@@ -1,5 +1,7 @@
+import torch
 from torch import nn
 from torch import optim
+
 def validate(model, testloader, criterion, device):
     test_loss = 0
     accuracy = 0
@@ -61,3 +63,4 @@ def train(model, learning_rate, device, epochs, training_loader, validation_load
 
             # Make sure training is back on
             model.train()
+    return model
